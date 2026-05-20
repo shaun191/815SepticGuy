@@ -288,77 +288,47 @@ export default function App() {
         </div>
       </section>
 
-      <section id="request-service" className="mx-auto max-w-7xl px-6 py-12 md:px-10">
-        <div className="grid gap-8 rounded-[2rem] bg-stone-950 p-8 text-white shadow-xl md:grid-cols-[.85fr_1.15fr] md:p-10">
-          <div>
-            <p className="font-black uppercase tracking-widest text-lime-300">Request Service</p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight">Tell us what’s going on.</h2>
-            <p className="mt-4 text-lg leading-8 text-stone-300">
-              For urgent septic backups, pump alarms, or active problems, call or text for the fastest response. For routine pumping or non-emergency service, send the form and we’ll follow up.
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a href={phoneHref} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-lime-400 px-6 py-4 font-black text-stone-950">
-                <Phone className="h-5 w-5" /> Call Now
-              </a>
-              <a href={textHref} className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-6 py-4 font-black text-white hover:bg-white/10">
-                Text {phone}
-              </a>
-            </div>
-          </div>
+<section id="request-service" className="mx-auto max-w-7xl px-6 py-12 md:px-10">
+  <div className="grid gap-8 rounded-[2rem] bg-stone-950 p-8 text-white shadow-xl md:grid-cols-[.85fr_1.15fr] md:p-10">
+    
+    <div>
+      <p className="font-black uppercase tracking-widest text-lime-300">Request Service</p>
+      <h2 className="mt-3 text-4xl font-black tracking-tight">Need septic help?</h2>
+      <p className="mt-4 text-lg leading-8 text-stone-300">
+        For the fastest response, call or text directly. For emergencies, backups, pump alarms, or urgent septic problems, calling is best.
+      </p>
 
-          <form
-            name="service-request"
-            method="POST"
-            data-netlify="true"
-            onSubmit={handleSubmit}
-            className="rounded-3xl bg-white p-6 text-stone-900 shadow-lg"
-          >
-            <input type="hidden" name="form-name" value="service-request" />
-            <div className="grid gap-4 md:grid-cols-2">
-              <label className="text-sm font-bold">
-                Name
-                <input name="name" required className="mt-2 w-full rounded-xl border border-stone-300 px-4 py-3 outline-none focus:ring-2 focus:ring-lime-400" />
-              </label>
-              <label className="text-sm font-bold">
-                Phone
-                <input name="phone" required className="mt-2 w-full rounded-xl border border-stone-300 px-4 py-3 outline-none focus:ring-2 focus:ring-lime-400" />
-              </label>
-              <label className="text-sm font-bold md:col-span-2">
-                Address / City
-                <input name="address" className="mt-2 w-full rounded-xl border border-stone-300 px-4 py-3 outline-none focus:ring-2 focus:ring-lime-400" />
-              </label>
-              <label className="text-sm font-bold md:col-span-2">
-                Service Needed
-                <select name="service" className="mt-2 w-full rounded-xl border border-stone-300 px-4 py-3 outline-none focus:ring-2 focus:ring-lime-400">
-                  <option>Septic pumping</option>
-                  <option>24/7 emergency service</option>
-                  <option>Pump alarm / pump issue</option>
-                  <option>Clog or backup</option>
-                  <option>Inspection / troubleshooting</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label className="text-sm font-bold md:col-span-2">
-                Message
-                <textarea
-                  name="message"
-                  rows="4"
-                  className="mt-2 w-full rounded-xl border border-stone-300 px-4 py-3 outline-none focus:ring-2 focus:ring-lime-400"
-                  placeholder="Briefly describe the issue, timing, and whether this is urgent."
-                />
-              </label>
-            </div>
-            <button type="submit" className="mt-5 w-full rounded-2xl bg-lime-400 px-6 py-4 text-lg font-black text-stone-950 transition hover:bg-lime-300">
-              Submit Request
-            </button>
-            {submitted && (
-              <p className="mt-4 rounded-xl bg-lime-50 p-3 text-sm font-bold text-lime-800">
-                Thanks — your request was sent. For emergencies, call or text now for the fastest response.
-              </p>
-            )}
-          </form>
-        </div>
-      </section>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a href={phoneHref} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-lime-400 px-6 py-4 text-lg font-black text-stone-950 shadow-lg transition hover:bg-lime-300">
+          <Phone className="h-5 w-5" /> Call {phone}
+        </a>
+
+        <a href={textHref} className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-6 py-4 text-lg font-black text-white transition hover:bg-white/10">
+          Text {phone}
+        </a>
+      </div>
+    </div>
+
+    <div className="rounded-3xl bg-white p-6 text-stone-900 shadow-lg">
+      <h3 className="text-2xl font-black">When you call or text, include:</h3>
+
+      <div className="mt-5 grid gap-4">
+        {[
+          "Your name and city",
+          "Whether this is urgent or routine",
+          "What you’re seeing: backup, alarm, slow drain, odor, or pumping request",
+          "A photo of the area or alarm panel if helpful",
+        ].map((item) => (
+          <div key={item} className="flex gap-3 rounded-2xl bg-stone-50 p-4 ring-1 ring-stone-200">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-lime-700" />
+            <span className="font-semibold text-stone-700">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>      
 
       <section className="bg-stone-900 py-16 text-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-3 md:px-10">
