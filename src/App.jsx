@@ -68,13 +68,15 @@ export default function App() {
 
           <header className="flex items-center justify-between gap-4 py-5">
             <div className="flex items-center gap-4">
-              <div className="rounded-2xl bg-white p-2 shadow-2xl ring-1 ring-white/20">
-                <img
-                  src="/images/logo-clean.png"
-                  alt="815 Septic Guy Logo"
-                  className="h-16 w-auto md:h-20"
-                />
-              </div>
+
+<div className="rounded-2xl bg-transparent p-0">
+  <img 
+    src="/images/logo-clean.png" 
+    alt="815 Septic Guy Logo" 
+    className="h-16 w-auto md:h-20 invert brightness-0" 
+  />
+</div>              
+
               <div className="hidden sm:block">
                 <p className="text-xl font-black tracking-tight">815 Septic Guy</p>
                 <p className="text-sm text-stone-300">Septic Pumping & Repair</p>
@@ -143,13 +145,14 @@ export default function App() {
               transition={{ duration: 0.55 }}
               className="relative"
             >
-              <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white p-2 shadow-2xl">
-                <img
-                  src="/images/truck7.jpg"
-                  alt="815 Septic Guy septic pumping truck on a residential service call"
-                  className="h-[420px] w-full rounded-[1.5rem] object-cover"
-                />
-              </div>
+             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-stone-950 shadow-2xl">
+  <img 
+    src="/images/truck7.jpg" 
+    alt="815 Septic Guy septic pumping truck on a residential service call" 
+    className="h-[420px] w-full object-cover opacity-90"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+</div>
               <div className="absolute -bottom-6 left-6 right-6 rounded-3xl bg-stone-950/95 p-5 shadow-2xl ring-1 ring-white/10 backdrop-blur md:left-auto md:w-80">
                 <div className="flex items-center gap-2 text-amber-400">
                   {[...Array(5)].map((_, i) => (
